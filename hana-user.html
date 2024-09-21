@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="./assets/css/user.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
+</head>
+
+<body>
+    <div class="main--content">
+        <header>
+            <nav class="sidebar" id="sidebar">
+                <div class="logo-sidebar">
+                    <img src="../admin/assets/img/logo.png" alt="HANA">
+                </div>
+                <ul class="menu">
+                    <li>
+                        <a href="#home">
+                            <img src="../admin/assets/img/paw-solid.png" alt="icon" width="20" height="20">
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#donate">
+                            <img src="../admin/assets/img/hand-holding-hand-solid.png" alt="icon" width="20"
+                                height="20">
+                            <span>Donate</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#programs">
+                            <img src="../admin/assets/img/list-check-solid.png" alt="icon" width="20" height="20">
+                            <span>Programs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#announcements">
+                            <img src="../admin/assets/img/bullhorn-solid.png" alt="icon" width="20" height="20">
+                            <span>Announcements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#account">
+                            <img src="../admin/assets/img/user-solid.png" alt="icon" width="20" height="20">
+                            <span>Account</span>
+                        </a>
+                    </li>
+                </ul>
+                <button class="logout-btn" id="logout-button"><a onclick="confirmLogout()">Logout</a></button>
+            </nav>
+        </header>
+        <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <span id="UsernameHome"></span>
+            </div>
+        </div>
+
+        <section id="home" class="content-section">
+            <!-- <h2>Available Pets for Adoption</h2> -->
+            <!-- <div id="pet-container" class="pet-container"></div> -->
+
+            <div id="adoptPet-container" class="adoptPet-container">
+                <!-- <article class="adopt-card">
+                    <figure class="adopt-card-image">
+                        <img src="./assets/img/logo.png" alt="drescue" />
+                    </figure>
+                    <div class="adopt-card-header"> Polly </div>
+                    <div class="adopt-card-footer">
+                        <button class="adoptMe-btn" id="viewPet-btn">About Me</button>
+                    </div>
+                </article> -->
+            </div>
+
+            <!-- VIEW PET MODAL -->
+            <div id="viewPet-container" class="view-pet-container" style="display: none;">
+                <div class="back-btn" onclick="closeViewPet()">
+                    <img src="./admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20">
+                </div>
+                <div class="pet-infos">
+                    <span id="petName" class="petName"></span>
+                    <div class="pet-cards">
+                        <div class="card">
+                            <img src="./assets/img/age.png" alt="">
+                            <span class="infoTitle">Age</span>
+                            <span id="petAge" class="Iinfo">2 yrs old</span>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/sterilization.png" alt="">
+                            <span class="infoTitle">Gender</span>
+                            <span id="petGender" class="Iinfo">Female</span>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/vaccination.png" alt="">
+                            <span class="infoTitle">Vaccined</span>
+                            <span id="petVaccine" class="Iinfo">Vaccinated</span>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/medical-report.png" alt="">
+                            <span class="infoTitle">Spay/Neutur</span>
+                            <span id="petSpayNeut" class="Iinfo">Spayed</span>
+                        </div>
+                    </div>
+                    <div class="pet-desc">
+                        <h3>About Polly</h3>
+                        <p id="petDesc" class="petDesc">Lorem ipsum bla bla lol lol <br> dsgfh</p>
+                    </div>
+                    <div class="pet-img">
+                        <div class="beforeImg">
+                            <img id="BeforeImg" style="max-width: 300px;" src="" alt="BeforeRescue" >
+                            <span class="infoTitle">Before</span>
+                        </div>
+                        <div class="afterImg">
+                            <img  id="AfterImg" style="max-width: 300px;" src="" alt="AfterRescue">
+                            <span class="infoTitle">After</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="adoptMe-btn" class="adoptMe-btn" style="width: 100%;">Adopt Me</button>
+            </div>
+
+            <!-- ADOPTION FORM MODAL -->
+            <div id="viewAdoptionForm-container" class="viewAdoptionForm-container" style="display: none;">
+                <div class="back-btn" onclick="closeAdoptionForm()">
+                    <img src="./admin/assets/img/arrow-left-solid.png" alt="" width="20">
+                </div>
+                <form>
+                    <h3>About Your Home</h3>
+                    <div class="form-group">
+                        <label for="livingSituation">Living Situation:</label>
+                        <select id="livingSituation" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="Own Home">Own Home</option>
+                            <option value="Rent Apartment">Rent Apartment</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="membersAllergic">Are any members of your household allergic to animals?</label>
+                        <select id="membersAllergic" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numMembers">Number of Family Members:</label>
+                        <input type="text" id="numMembers" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numChild">Number of Children Under 12:</label>
+                        <input type="text" id="numChild" required>
+                    </div>
+                    <hr class="form-divider">
+                    <h3>Additional Information</h3>
+                    <div class="form-group">
+                        <label for="AddInfo1">Why do you want to adopt a pet?</label>
+                        <textarea id="AddInfo1" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddInfo2">Have you had pets before? If so, what kind?</label>
+                        <textarea id="AddInfo2" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddInfo3">What happens to your pet if or when you move?</label>
+                        <textarea id="AddInfo3" rows="3" required></textarea>
+                    </div>
+                    <hr class="form-divider">
+                    <h3>Interview & Visitation</h3>
+                    <div class="form-group">
+                        <label for="interviewDate">Select on the available date:</label>
+                        <select id="interviewDate" required>
+                            <option value="" disabled selected>Select</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interviewDate">Select on the available time:</label>
+                        <select id="interviewTime" required>
+                            <option value="" disabled selected>Select</option>
+                            
+                        </select>
+                    </div>
+                    <button id="submitAdopt-btn" class="adoptMe-btn">Submit Adoption Application</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="donate" class="content-section">
+            <div class="donation-form" id="initial-donation">
+                <!-- <h2>Donate</h2> -->
+                <div class="wishlist-container">
+                    <div class="wishlist-card">
+                        <h3>CATS & DOGS WISH LIST</h3>
+                        <ul>
+                            <li>Dog food (kibble and canned)</li>
+                            <li>Cat food (kibble and canned)</li>
+                            <li>Crates, carriers or cages</li>
+                            <li>Pee pads</li>
+                            <li>Scratching posts for the cats</li>
+                            <li>Brushes and toys for cats</li>
+                            <li>Vaccines, medicine and vitamins</li>
+                            <li>Dog and cat treats</li>
+                            <li>Leashes, harnesses and collars</li>
+                        </ul>
+                    </div>
+                    <div class="wishlist-card">
+                        <h3>SHELTER WISH LIST</h3>
+                        <ul>
+                            <li>Detergent powder and bleach</li>
+                            <li>Dishwashing paste or liquid</li>
+                            <li>Bath towels</li>
+                            <li>Garbage bags (XXL)</li>
+                            <li>Foot rugs or door mats</li>
+                            <li>Clinic supplies (alcohol, cotton, etc.)</li>
+                            <li>Old newspapers</li>
+                            <li>Toilet paper</li>
+                            <li>Mops and brooms</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="monetary-container">
+                    <div class="channels-container">
+                        <div class="channel-card">
+                            <img src="./assets/img/PayPal-Logo.png" alt="">
+                            <h3>PayPal</h3>
+                            <p>garcia_1029@yahoo.com</p>
+                            <p>Ernie Garcia</p>
+                        </div>
+                        <div class="channel-card">
+                            <img src="./assets/img/gcash-logo.png" alt="">
+                            <h3>Gcash</h3>
+                            <p>0909 3918 007</p>
+                            <p>Ernie Garcia</p>
+                        </div>
+                        <div class="channel-card">
+                            <img src="./assets/img/gotyme-logo.png" alt="">
+                            <h3>GoTyme</h3>
+                            <p>013810774533</p>
+                            <p>Ernie Garcia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="donatebtn-container">
+                    <button class="save-btn" id="donate-button" style="width: 100%; font-size: 1rem;">Donate</button>
+                </div>
+            </div>
+
+            <div id="viewDonationForm" class="donate-content" style="display: none;">
+                <div class="back-btn" onclick="closeDonationForm()">
+                    <img src="./admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20">
+                </div>
+                <div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="text" id="amount">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mod">Mode of Donation</label>
+                            <select id="mod">
+                                <option value="Cash">Cash</option>
+                                <option value="In-Kind">In-Kind</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="proofOfDonation">Proof of Donation</label>
+                            <div class="upload-container">
+                                <button class="upload-btn">Upload Photo
+                                    <input type="file" id="proofPhoto-upload" class="file-input" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="remarks">Remarks</label>
+                            <textarea id="remarks" rows="10"></textarea>
+                        </div>
+                    </div><br>
+                    <button type="submit" id="submit" class="save-btn">Send Donation</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" class="content-section">
+            <div class="prog-ann-contents" id="prog-contents">
+               
+            </div>
+            <div class="notification-content" style="display: none;">
+                <div class="back-btn" onclick="closeNotification()">
+                    <img src="./admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20">
+                </div>
+                <div class="noti-detailed-content">
+                    <div class="noti-content-title" id="Ptitle"></div>
+                    <div class="noti-content-dateposted" id="Pposted"></div>
+                    <div class="noti-content-body" id="Pbody"></div>
+                    <div class="noti-content-img" style="max-width: 100px;" id="PcontentImg"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="announcements" class="content-section">
+            <!-- <h2> Announcements</h2> -->
+            <div class="prog-ann-contents" id="prog-ann-contents">
+            
+
+
+
+            </div>
+
+
+
+
+            <div class="notification-content" style="display: none;">
+                <img src="./admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20" class="back-btn"
+                    onclick="closeNotification()">
+                <div class="noti-detailed-content">
+                    <div class="noti-content-title" id="Atitle"></div>
+                    <div class="noti-content-body" id="Abody"></div>
+                    <div class="noti-content-dateposted" id="APosted"></div>
+                    <div class="noti-content-img" id="DivImg"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="account" class="content-section">
+            <div class="account-content">
+                <div class="account-lists">
+                    <ul>
+                        <li class="list-item active" data-target="profile"><a href="#profile">Profile Settings</a></li>
+                        <li class="list-item" data-target="email"><a href="#email"> Change Email</a></li>
+                        <li class="list-item" data-target="password"><a href="#password"> Change Password</a></li>
+                        <li class="list-item" data-target="adoption-applications"><a
+                                href="#adoption-applications">Adoption Applications</a></li>
+                        <li class="list-item" data-target="donation-history"><a href="#donation-history">Donation
+                                History</a></li>
+                    </ul>
+                </div>
+                <div class="account-lists-content">
+                    <div class="list-content" id="profile">
+                        <h2>Profile Settings</h2>
+                        
+                        <div class="profile-image">
+                            <img id="profileImage" src="./assets/img/logo.png" alt="Profile Picture">
+                            <div class="upload-container">
+                                <input type="file" id="profilePhoto-upload" class="file-input"/>
+                                <button class="upload-btn" id="NewProfile">Upload New Photo</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstname" placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="middleInitial">MI</label>
+                                    <input type="text" id="middleInitial" placeholder="Middle Initial">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastname" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" id="username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobileNumber">Mobile Number</label>
+                                    <input type="tel" id="mobileNumber" placeholder="0915 123 4567">
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="address"> Address</label>
+                                <input type="text" id="address" value="Antipolo City">
+                            </div><br>
+                            <button type="submit" class="save-btn" id="UpdateInfo">Save Changes</button>
+                        </div>
+                    </div>
+                    <div class="list-content" id="email">
+                        <h2>Change Email</h2>
+                        <form>
+                            <div class="form-group full-width">
+                                <label for="currentEmail">Current Email</label>
+                                <input type="email" id="currentEmail"  readonly>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="newEmail">New Email</label>
+                                <input type="email" id="newEmail">
+                            </div>
+                            <div class="form-group full-width">  
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPasswordEmail">
+                            </div>
+                            <button type="submit" id="UpdateEmail" class="save-btn">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="list-content" id="password">
+                        <h2>Change Password</h2>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword">
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="newPassword"> New Password</label>
+                                <input type="password" id="newPassword">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="newPassword"> Re-type New Password</label>
+                                <input type="password" id="ReTypenewPassword">
+                            </div>
+                            <button type="submit" id="updatepass" class="save-btn">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="list-content" id="adoption-applications">
+                        <h2>Adoption Applications</h2>
+
+                        <table class="donation-table">
+                            <thead>
+                                <tr>
+                                    <th>Pet Name</th>
+                                    <th>Application Number</th>
+                                    <th>Status</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="StatusTableContent">
+
+                            </tbody>
+                        </table>
+
+
+
+
+
+                    </div>
+                    <div class="list-content" id="donation-history">
+                        <h2>Donation History</h2>
+                        <table class="donation-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Donation Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="DonationHistoryBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./assets/js/user.js"></script>
+    <script src="./assets/js/hana-user-displaypets.js" type="module"></script>
+
+</body>
+
+</html>

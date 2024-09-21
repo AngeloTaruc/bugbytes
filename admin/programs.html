@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="./assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn"><a onclick="confirmLogout()" id="logout-btn">Logout</a></button>
+    </nav>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals </span>
+                <h2>Programs</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper">
+            <div id="pageContent">
+                <div class="search-and-actions">
+                    <div class="final-search">
+                        <div>
+
+                            <div class="search">
+                                <input type="text" id="searchInput" placeholder="Type and press Enter">
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="final-actions">
+                        <button class="final-buttons" onclick="showAddModal()">
+                            <img src="./assets/img/plus-solid.png" alt="" width="15" height="15">
+                            <span class="actions-lbl"> Add </span>
+                        </button>
+                        <button class="final-buttons" id="Archives">
+                            <img src="./assets/img/box-archive-solid.png" alt="" width="15" height="15">
+                            <span class="actions-lbl">Archives</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="prog-tabs" id="Displaytab">
+                    <button class="prog-tab" id="all-tab">All</button>
+                    <button class="prog-tab" id="current-tab">Current/Upcoming</button>
+                    <button class="prog-tab" id="past-tab">Past</button>
+                </div>
+
+                <div class="table-container">
+                    <!-- TABLE FOR ALL PROGRAMS -->
+                    <div id="all-programs" class="table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th> Date Posted</th>
+                                    <th>Program Name</th>
+                                    <th>Program Description</th>
+                                    <th>No. of Volunteers</th>
+                                    <th>Program Date</th>
+                                    <th style="display:none;" id="action"> Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="AllTableProgramBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- TABLE FOR CURRENT PROGRAMS -->
+                    <div id="current-programs" class="table" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th> Date Posted</th>
+                                    <th>Program Name</th>
+                                    <th>Program Description</th>
+                                    <th>No. of Volunteers</th>
+                                    <th>Program Date</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="CurrentUpComingPrograms">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- TABLE FOR PAST PROGRAMS -->
+                    <div id="past-programs" class="table" style="display: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th> Date Posted</th>
+                                    <th>Program Name</th>
+                                    <th>Program Description</th>
+                                    <th>No. of Volunteers</th>
+                                    <th>Program Date</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="PastTableBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="addModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('addModal')">&times;</span>
+                    <div class="create-volunteer-account">
+                        <div>
+                            <div class="view-merch-details">
+                                <div class="prog-col">
+                                    <span>Program Name:</span>
+                                    <input type="text" name="programTitle" id="programTitle" class="prog-row"
+                                        id="progName" required>
+                                </div>
+                                <div class="prog-col">
+                                    <span>Program Date:</span>
+                                    <input type="date" name="programDate" id="programDate" class="prog-row"
+                                        required>
+                                </div>
+                                <div class="prog-col">
+                                    <span>Program Description:</span>
+                                    <textarea name="programMsg" class="prog-row" id="programMsg" rows="10"
+                                        required></textarea>
+                                </div>
+                                <div class="prog-col">
+                                    <span>Program Image:</span>
+                                    <input type="file" name="programPoster" id="programPoster" class="prog-row"
+                                        accept=".jpg, .jpeg, .png" required>
+                                </div>
+                                <div class="prog-col">
+                                    <button class="btn-add" type="submit" id="btn-add" name="submit">Post</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="editInfo" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('editInfo')">&times;</span>
+                    <div>
+                        <div class="view-merch-details">
+
+                            <div class="prog-col">
+                                <span>Program Name:</span>
+                                <input type="text" name="programTitle" class="prog-row" id="progName" required>
+                            </div>
+                            <div class="prog-col">
+                                <span>Program Date:</span>
+                                <input type="date" name="programDate" class="prog-row" id="progDate" required>
+                            </div>
+                            <div class="prog-col">
+                                <span>Program Description:</span>
+                                <textarea name="programMsg" class="prog-row" rows="10" id="programDesc"
+                                    required></textarea>
+                            </div>
+                            <div class="prog-col">
+                                <span>Program Image:</span>
+                                <input type="file" name="programPoster" id="EditPoster" class="prog-row"
+                                    accept=".jpg, .jpeg, .png">
+                            </div>
+                            <div class="prog-col">
+                                <button class="btn-add" id="UpdateBtn" type="submit" name="update">Update
+                                    Program</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- VIEW PROGRAM INFO -->
+            <div id="programInfo" class="notification-content" style="display: none;">
+                <br>
+                <img src="../admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20" class="back-btn"
+                    onclick="closeModal()">
+                <div class="noti-detailed-content">
+                    <div class="noti-content-title" id="ProTitle"></div>
+                    <div class="noti-content-dateposted" id="ProDate"></div>
+                    <div class="noti-content-body" id="ProContent"></div>
+                    <div class="noti-content-img">
+                        <img id="ProgramPoster" src="" alt="" width="100%">
+                    </div>
+                    <p id="Posted" style="font-size: 12px;">Posted on: </p>
+                    <h2>Volunteers</h2>
+                    <ul id="volunteers"></ul>
+                </div>
+                <div class="final-actions">
+                    <button id="edit" class="icons edit" onclick="editModal()">
+                        <img src="../admin/assets/img/pen-to-square-solid.png" width="15" height="15">
+                    </button>
+                    <button id="Archive" class="icons Archives">
+                        <img src="../admin/assets/img/box-archive-solid.png" width="15" height="15">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div id="viewInfo" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('viewInfo')">&times;</span>
+                    <div class="ic-vol-container">
+                        <div class="ic-content">
+                            <h2 id="ProTitle"> </h2>
+                            <h4 id="ProDate"> </h4>
+                            <p id="ProContent"></p>
+                            <img id="ProgramPoster" src="" alt="">
+                            <p id="Posted" style="font-size:12px;">Posted on: </p>
+                        </div>
+                        <div class="vol-content">
+                            <h2>Volunteers</h2>
+                            <ul id="volunteers">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="final-actions">
+                        <button id="edit" class="icons edit" onclick="editModal()"><img
+                                src="../admin/assets/img/pen-to-square-solid.png" width="15" height="15"></button>
+                        <button id="Archive" class="icons Archives">
+                            <img src="../admin/assets/img/box-archive-solid.png" width="15" height="15"></a>
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+
+        <script>
+            function showProgramInfo(programId) {
+                const modal = document.getElementById('programInfo');
+                const pageContent = document.getElementById('pageContent');
+
+                modal.style.display = 'block';
+                pageContent.style.display = 'none';
+            }
+        </script>
+
+        <script src="../admin/assets/js/admin-sidebar.js"></script>
+        <script src="../admin/assets/js/modals.js"></script>
+        <script src="../admin/assets/js/Programs.js" type="module"></script>
+        <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+</body>
+
+</html>

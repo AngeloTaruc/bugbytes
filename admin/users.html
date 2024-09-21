@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+    
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Users</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper">
+            <div class="search-and-actions">
+                <div class="final-search">
+                    <form >
+                        <div class="search">
+                            <input type="text" id="searchUser" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30rem;">Name</th>
+                            <th>Adoptions</th>
+                            <th>Status</th>
+                            <th style="width: 10rem;">Registation Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="UserTableBody" onclick="showInfo()">
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewInfo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewInfo')">&times;</span>
+            <div class="view-adopter-container">
+                <div class="adopter-infos">
+                    <!-- <div class="ad-profilepic">
+                        <img src="" alt="">
+                    </div> -->
+                    <div class="ad-profile">
+                        <span id="MName"></span>
+                        <span id="MUsername"></span>
+                        <span id="MPhone"></span>
+                    </div>
+                </div>
+                <br>
+
+                <div class="adopter-infos">
+                    <div class="table ad-history">
+                        <h3>Adoption Applications</h3>
+                        <table>
+                            <thead>
+                                <tr >
+                                    <th class="AdoptApp-name">Pet Name</th>
+                                    <th class="AdoptApp-appnum">Application Number </th>
+                                    <th class="AdoptApp-status">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="">
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="adopter-infos">
+                    <div class="table ad-history">
+                        <h3>Donation History</h3>
+                        <table>
+                            <thead>
+                                <tr >
+                                    <th class="ad-date">Date</th>
+                                    <th class="ad-amount">Form of Donation</th>
+                                    <th class="ad-type">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="UserDonation">
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/modals.js"></script>
+    <script src="../admin/assets/js/Users.js" type="module"></script>
+</body>
+
+</html>

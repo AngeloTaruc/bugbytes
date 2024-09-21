@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope for Abused and Neglected Animals</title>
+  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+  <div class="form">
+    <div class="logo-logo">
+      <a href="hana.html"><img src="./assets/img/logo.png" alt="logo"
+          style="object-fit: cover; object-position: center; width: 150px; height: 150px;"></a>
+      <label class="title">Hope for Abused and Neglected Animals</label>
+      <label class="subtitle">Adopter Login Portal</label>
+    </div>
+    <div class="flex-column">
+      <label>Email </label>
+    </div>
+    <div class="inputForm">
+      <img src="../assets/img/envelope-solid.png" height="20" viewBox="0 0 32 32" width="20">
+      <input type="text" name="email" class="input" id="InputEmail" placeholder="Enter your Email" required>
+    </div>
+
+    <div class="flex-column">
+      <label>Password </label>
+    </div>
+    <div class="inputForm">
+      <img src="../assets/img/lock-solid.png" height="20" viewBox="-64 0 512 512" width="20">
+      <input type="password" name="password" id="InputPassword" class="input" placeholder="Enter your Password"
+        required>
+    </div>
+
+    <div class="flex-row">
+      <div>
+        <!-- <input type="checkbox">
+                <label>Remember me </label> -->
+      </div>
+      <span class="span"><a class="span">Forgot password?</a></span>
+    </div>
+    <button type="submit" class="button-submit" id="login">Sign In</button>
+    <p class="p">Don't have an account? <a id="signup-link" class="span"><span class="span">Sign Up</span></a></p>
+  </div>
+
+  <script type="module">
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref as databaseRef, onValue, get, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyB166FWoQ8GfPHEVtKVy-KmI9jeWul6Pbg",
+      authDomain: "pawsitive-368b1.firebaseapp.com",
+      databaseURL: "https://pawsitive-368b1-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "pawsitive-368b1",
+      storageBucket: "pawsitive-368b1.appspot.com",
+      messagingSenderId: "59441375746",
+      appId: "1:59441375746:web:16d10d687aced65786d51b",
+      measurementId: "G-CDSTB89PGK"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+
+    const emailInput = document.getElementById("InputEmail");
+    const passwordInput = document.getElementById("InputPassword");
+
+    // Function to handle login
+    function login() {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          const userRef = databaseRef(db, `Users/${user.uid}`);
+
+          get(userRef).then((snapshot) => {
+            if (snapshot.exists()) {
+              const userData = snapshot.val();
+              // Add logic for authenticated user
+            } else {
+              alert('User does not exist!');
+            }
+          });
+        })
+        .catch((error) => {
+          alert("Failed to login: " + error.message);
+        });
+    }
+
+    // Handle click event for login button
+    document.getElementById('login').addEventListener('click', login);
+
+    // Handle "Enter" key press for login
+    document.addEventListener('keydown', (event) => {
+      if (event.key === "Enter") {
+        login();
+      }
+    });
+
+    // Check auth state
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const encodedUserId = encodeURIComponent(user.uid);
+        window.location.href = `hana-user.html?uid=${encodedUserId}`;
+
+        update(databaseRef(db, `Users/${user.uid}`), {
+          status: "Online"
+        }).then(() => {
+          console.log('User logged in');
+        }).catch(() => {
+          console.error('Error updating user status');
+        });
+      } else {
+        console.log('Not logged in');
+      }
+    });
+
+    // Signup link
+    document.getElementById('signup-link').addEventListener('click', function (event) {
+      event.preventDefault();
+      window.location.href = 'signup.html';
+    });
+
+  </script>
+</body>
+
+</html>

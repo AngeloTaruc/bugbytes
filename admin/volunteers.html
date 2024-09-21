@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+    
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Admin-Hope for Abused and Neglected Animals </span>
+                <h2>Volunteers</h2>
+            </div>
+        </div>
+
+        <!-- TABLE FOR VOLUNTEER APPLICANTS -->
+        <div class="header--wrapper">
+            <div class="search-and-actions">
+                <div class="final-search">
+                    <form action="?" method="GET">
+                        <!-- <div class="search">
+                            <input type="text" id="search" placeholder="Search"
+                                onkeyup="ajax_fn('volunteers_tmp.php?search='+this.value,'tmp')" />
+                        </div> -->
+                    </form>
+                </div>
+                <div class="final-actions">
+                    
+                        <button class="final-buttons" id="rejectbutton">
+                            <img src="./assets/img/box-archive-solid.png" class="svg-icon" alt="" width="15"
+                                height="15" />
+                            <span class="actions-lbl">Rejected</span>
+                        </button>
+                 
+                </div>
+            </div>
+
+            <div class="volunteers--container">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Application Date</th>
+                                <th>Form replies</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="VolunteerTableBody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW APPLICATION FORM MODAL -->
+        <div id="viewModal" class="viewModal" style="display: none;">
+            <div class="viewModal-content">
+                <span class="close" onclick="closeViewModal()">&times;</span>
+                <form>
+                    <div class="q-box">
+                        <span class="vfc-question">Have you volunteered with HANA Shelter before?</span>
+                        <input type="text" name="vfc-q2" id="Qe1" class="vfc-inputs"  readonly>
+                    </div>
+
+                    <div class="vfc-line"></div>
+
+                    <span class="vfc-title">About You</span>
+
+                    <div class="qbox-container">
+                        <div class="q-box">
+                            <span class="vfc-question">Name</span>
+                            <input type="text" name="vfc-q2"  id="Q2" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Age</span>
+                            <input type="text" name="vfc-q3"  id="Q3" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Gender</span>
+                            <input type="text" name="vfc-q4"  id="Q4" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Mobile Number</span>
+                            <input type="text" name="vfc-q5"  id="Q5"  class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Email</span>
+                            <input type="email" name="vfc-q6" id="Q6" class="vfc-inputs" value="" readonly>
+                        </div>
+                    </div>
+
+                    <div class="vfc-line"></div>
+
+                    <div class="qbox-container">
+                        <div class="q-box">
+                            <span class="vfc-question">How did you learn about this volunteer opportunity?</span>
+                            <input type="text" name="vfc-q7"  id="Q7" class="vfc-inputs" value="" readonly>
+                        </div>
+                    </div>
+
+                    <div class="vfc-line"></div>
+                    <span class="vfc-title">Volunteer Application Details</span>
+
+                    <div class="qbox-container">
+                        <div class="q-box">
+                            <span class="vfc-question">What motivated you to volunteer and get involved with animal
+                                welfare through HANA Shelter?</span>
+                            <input type="text" name="vfc-q8"   id="Q8" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Which role are you primarily interested in applying for?</span>
+                            <input type="text" name="vfc-q8"  id="Q9" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Can you describe your skills, strengths, and any previous
+                                experiences that have prepared you for the above volunteer role at HANA Shelter?</span>
+                            <textarea name="vfc-q10" cols="10"  id="Q10" rows="2" class="q-txtarea" readonly></textarea>
+                        </div>
+
+                        <div class="q-box">
+                            <span class="vfc-question">What other unique skills, experiences, or perspectives do you
+                                bring to HANA Shelter as a volunteer?</span>
+                            <textarea name="vfc-q11" cols="10"   id="Q11" rows="2" class="q-txtarea" readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="vfc-line"></div>
+                    <span class="vfc-title"></span>
+
+                    <div class="qbox-container">
+                        <div class="q-box">
+                            <span class="vfc-question">How many days per week are you able to allot for volunteer
+                                work?</span>
+                            <input type="text" name="vfc-q12"   id="Q12" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">How are you able to participate in volunteer work?</span>
+                            <input type="text" name="vfc-q13"  id="Q13" class="vfc-inputs" value="" readonly>
+                        </div>
+                    </div>
+
+                    <div class="vfc-line"></div>
+                    <span class="vfc-title">Almost done</span>
+
+                    <div class="qbox-container">
+                        <div class="q-box">
+                            <span class="vfc-question">How familiar are you with the advocacies of HANA Shelter?</span>
+                            <input type="text" name="vfc-q14"  id="Q14" class="vfc-inputs" value="" readonly>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">What do animal welfare and animal rights mean to you?</span>
+                            <textarea name="vfc-q15" cols="10"  id="Q15" rows="3" class="q-txtarea" readonly></textarea>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">How do you contribute to animal welfare in your daily activities
+                                or lifestyle?</span>
+                            <textarea name="vfc-q16" cols="10"  id="Q16" rows="2" class="q-txtarea" readonly></textarea>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">How would you describe the current state of animal welfare and
+                                animal rights in the Philippines?</span>
+                            <textarea name="vfc-q17" cols="10"  id="Q17" rows="2" class="q-txtarea" readonly></textarea>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Could you tell us about the animals you currently care for at home?</span>
+                            <textarea name="vfc-q18" cols="10" id="Q18" rows="2" class="q-txtarea" readonly></textarea>
+                        </div>
+                        <div class="q-box">
+                            <span class="vfc-question">Is there anything else you'd like to tell us before you formally
+                                submit your volunteer application?</span>
+                            <textarea name="vfc-q19" cols="10"  id="Q19" rows="2" class="q-txtarea" readonly></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+         <!-- APPROVE MODAL -->
+         <div id="approveModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('approveModal')">&times;</span>
+                <div class="create-volunteer-account">
+                    <form id="send-test">
+                        <input type="hidden" name="vaid" value="">
+                        <input type="hidden" name="volunteer_name" value="">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password"
+                                value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="" readonly>
+                        </div>
+                        <br>
+                        <button type="submit" name="create" id="ApproveVolunteer" class="btn-add">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- REJECT MODAL -->
+        <div id="rejectModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('rejectModal')">&times;</span>
+                <div class="create-volunteer-account">
+                    <form id="send-test-reject">
+                        <input type="hidden" name="vaid" value="">
+                        <input type="hidden" name="volunteer_name" value="">
+                        <div class="form-group">
+                            <label for="reason">Reason for Rejection</label>
+                            <textarea class="form-control" id="reason" name="reason" rows="10" cols="10"></textarea>
+                        </div>
+                        <br>
+                        <button type="submit" name="reject" id="rejectBtn" class="btn-add">Reject</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLE FOR APPROVED VOLUNTEERS -->
+        <div class="header--wrapper">
+            <div class="search-and-actions">
+                <div class="final-search">
+                    <form >
+                        <div class="search">
+                            <input type="text" id="search" placeholder="Search" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="volunteers--container">
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="VolunteerTablebody">
+                          
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="viewInfo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewInfo')">&times;</span>
+            <div class="view-adopter-container">
+                <div class="adopter-infos">
+                    <div class="ad-profile">
+                        <span>Name: <b><?php echo $row['name']; ?></b></span>
+                        <span>Username: <?php echo $row['username']; ?></span>
+                        <span>Position: <?php echo $row['position']; ?></span>
+                        <span>Phone Number: <?php echo $row['phone']; ?></span>
+                        <span>Birthday: <?php echo $row['birthday']; ?></span>
+                        <span>Date Added: <?php echo date("F j, Y", strtotime($row['date_added']));?></span>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(action) {
+            let message = '';
+
+            if (action === 'reject') {
+                message = 'Are you sure you want to reject this volunteer application?';
+                if (confirm(message)) {
+                    document.getElementById('rejectModal').style.display = 'block';
+                }
+            } else if (action === 'approve') {
+                message = 'Are you sure you want to approve this volunteer application?';
+                if (confirm(message)) {
+                    document.getElementById('approveModal').style.display = 'block';
+                }
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showViewModal() {
+            document.getElementById('viewModal').style.display = 'block';
+        }
+
+        function closeViewModal() {
+            document.getElementById('viewModal').style.display = 'none';
+        }
+    </script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+            publicKey: "Wmz85rI7jWrB8f3ZP"
+            });
+        })();
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function() {
+        document.getElementById('send-test').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var toEmail = document.getElementById('email').value;
+            // these IDs from the previous steps
+            emailjs.sendForm('service_x95p5n6', 'template_jjt898w',this)
+            .then((result) => {
+                console.log('SUCCESS!',result.text);
+            }, (error) => {
+                console.log('FAILED...', error);
+            });
+        });
+    }
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function() {
+        document.getElementById('send-test-reject').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var toEmail = document.getElementById('email').value;
+            var toEmail = document.getElementById('email').value;
+            // these IDs from the previous steps
+            emailjs.sendForm('service_x95p5n6', 'template_bhz63aate',this)
+            .then((result) => {
+                console.log('SUCCESS!',result.text);
+            }, (error) => {
+                console.log('FAILED...', error);
+            });
+        });
+    }
+    </script>
+
+    
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/modals.js"></script>
+    <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+    <script src="../admin/assets/js/volunteers.js" type="module"></script>
+</body>
+
+</html>

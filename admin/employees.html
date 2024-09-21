@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Employees</h2>
+            </div>
+        </div>
+        <div class="header--wrapper">
+            <div class="search-and-actions">
+                <div class="final-search">
+                    <div >
+                        <div class="search">
+                            <input type="text" id="searchEmployee" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+                <div class="final-actions">
+                    <button class="final-buttons" onclick="showAddModal()">
+                        <img src="./assets/img/plus-solid.png" class="svg-icon" alt="" width="15" height="15">
+                        <span class="actions-lbl">Add Staff</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="table">
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Employee Username</th>
+                                <th>Position</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="EmployeeTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="viewInfo" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('viewInfo')">&times;</span>
+                <div class="view-adopter-container">
+                    <div class="adopter-infos">
+                        <div class="ad-profile" id="ad-profile">
+
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addModal')">&times;</span>
+                <div class="create-volunteer-account">
+                    <div>
+                        <div class="view-merch-details">
+                            <div class="prog-col">
+                                <span>Full Name:</span>
+                                <input type="text" name="staffName" id="staffName" placeholder="Firstname, MI, Lastname"
+                                    class="prog-row" required>
+                            </div>
+
+                            <div class="prog-col">
+                                <span>Username:</span>
+                                <input type="text" name="staffName" id="staffUserName" placeholder="Username"
+                                    class="prog-row" required>
+                            </div>
+                            <div class="prog-col">
+                                <span>Phone Number:</span>
+                                <input type="tel" name="staffPhone" id="staffPhone" class="prog-row" required>
+                            </div>
+                            <div class="prog-col">
+                                <span>Birthday:</span>
+                                <input type="date" name="staffBirthday" id="staffBirthday" class="prog-row" required>
+                            </div>
+
+                            <div class="vfc-line"></div><br>
+
+                            <div class="prog-col">
+                                <span>Email:</span>
+                                <input type="Email" name="staffEmail" id="staffEmail" class="prog-row" required>
+                            </div>
+                            <div class="prog-col">
+                                <span>Password:</span>
+                                <input type="password" name="staffPassword" id="staffPassword" class="prog-row"
+                                    required>
+                            </div>
+                            <div class="prog-col">
+                                <span>Position:</span>
+                                <select name="staffPosition" id="staffPosition">
+                                    <option value="Administrator">Administrator</option>
+                                    <option value="Financial Auditor">Financial Auditor</option>
+                                    <option value="Adoption Manager">Adoption Manager</option>
+                                    <option value="Social Media Manager">Social Media Manager</option>
+                                </select>
+                            </div><br>
+                            <div class="prog-col">
+                                <button class="btn-add" name="submit" id="submitEmployee">Add</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/modals.js"></script>
+    <script src="../admin/assets/js/Employees.js" type="module"> </script>
+    <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope for Abused and Neglected Animals</title>
+  <link rel="stylesheet" href="./assets/css/login.css">
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
+</head>
+
+<body>
+  <div class="form">
+    <div class="logo-logo">
+      <a href="hana.html"><img src="./assets/img/logo.png" alt="logo"
+          style="object-fit: cover; object-position: center; width: 150px; height: 150px;"></a>
+      <label class="title">Hope for Abused and Neglected Animals</label>
+      <label class="subtitle">Employee Login Portal</label>
+    </div>
+
+    <div class="flex-column">
+      <label>Email </label>
+    </div>
+    <div class="inputForm">
+      <img src="../assets/img/envelope-solid.png" height="20" viewBox="0 0 32 32" width="20">
+      <input type="text" name="email" class="input" id="InputEmail" placeholder="Enter your Email" required>
+    </div>
+
+    <div class="flex-column">
+      <label>Password </label>
+    </div>
+    <div class="inputForm">
+      <img src="../assets/img/lock-solid.png" height="20" viewBox="-64 0 512 512" width="20">
+      <input type="password" name="password" id="InputPassword" class="input" placeholder="Enter your Password"
+        required>
+    </div>
+
+    <!-- <div class="flex-row">
+      <div>
+        <input type="checkbox">
+        <label>Remember me </label>
+      </div>
+      <span class="span"><a class="span">Forgot password?</a></span>
+    </div> -->
+    <button type="submit" class="button-submit" id="login">Sign In</button>
+
+  </div>
+
+
+
+
+</body>
+
+<script type="module">
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref as databaseRef, onValue, get, update, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB166FWoQ8GfPHEVtKVy-KmI9jeWul6Pbg",
+    authDomain: "pawsitive-368b1.firebaseapp.com",
+    databaseURL: "https://pawsitive-368b1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "pawsitive-368b1",
+    storageBucket: "pawsitive-368b1.appspot.com",
+    messagingSenderId: "59441375746",
+    appId: "1:59441375746:web:16d10d687aced65786d51b",
+    measurementId: "G-CDSTB89PGK"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const auth = getAuth(app);
+
+  const EmployeeRef = databaseRef(db, 'Employee');
+
+  const emailInput = document.getElementById("InputEmail");
+  const passwordInput = document.getElementById("InputPassword");
+
+  const LocalDate = new Date();
+  const Year = LocalDate.getFullYear();
+  const month = LocalDate.getMonth() + 1; // Adjust month index
+  const day = LocalDate.getDate();
+
+  const date = `${Year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`; // Format date
+  const id = Date.now().toString();
+
+  document.getElementById('login').addEventListener('click', () => {
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const UserRef = databaseRef(db, `Employee/${user.uid}`);
+
+        // Get current date
+        const today = new Date();
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const month = monthNames[today.getMonth()];
+        const day = today.getDate();
+        const year = today.getFullYear();
+        const hours = today.getHours();
+        const minutes = today.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12;
+
+        // Format date and time as "Aug 23, 2024 2:30 PM"
+        const date = `${month} ${day}, ${year} ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+
+
+        const id = Date.now().toString(); // Generate a unique ID for the log entry
+
+        get(UserRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const userKey = snapshot.key;
+
+            // Debugging: Log the userData object
+            console.log("User Data:", userData);
+
+            const logData = {
+              EmployeeID: userKey || "N/A", // Default to "N/A" if undefined
+              Username: userData.Username || "N/A",
+              Position: userData.Position || "N/A",
+              Date: date,
+              Status: 'Logged In'
+            };
+
+            // Debugging: Log the logData object before setting it
+            console.log("Log Data:", logData);
+
+            set(databaseRef(db, `Logs/${id}`), logData)
+              .then(() => {
+                alert('Successfully Logged In');
+              })
+              .catch((error) => {
+                console.error('Error Occurred While Logging:', error);
+                alert('Error Occurred While Logging');
+              });
+
+            onAuthStateChanged(auth, (user) => {
+              if (user) {
+
+                update(databaseRef(db, `Employee/${userKey}`), {
+                  Status: 'Active'
+                }).then(() => {
+                  console.log('Employee Status Updated');
+                }).catch((error) => {
+                  console.error('Error Updating Employee Status:', error);
+                })
+
+
+                window.location.href = '../admin/dashboard.html';
+              } else {
+                alert("Please Login First");
+              }
+            });
+          } else {
+            alert("User Not Found");
+          }
+        }).catch((error) => {
+          console.error('Error Occurred:', error);
+          alert("Error Occurred: " + error.message);
+        });
+      })
+      .catch((error) => {
+        console.error('Failed to Login:', error);
+        alert("Failed to Login: " + error.message);
+      });
+  });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</html>

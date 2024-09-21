@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body onload="openStat('account-general-content')">
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+    
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Admin-Hope for Abused and Neglected Animals </span>
+                <h2 class="page-title">Account Settings</h2>
+            </div>
+        </div>
+
+        <div class="account-settings">
+            <div class="main--container">
+                    <div class="col-lists">
+                        <ul class="list-group">
+                            <li class="list-group-item" onclick="openStat('account-general-content')" id="general-item">
+                                General
+                            </li>
+                            <li class="list-group-item" onclick="openStat('account-change-password-content')"
+                                id="change-password-item">
+                                Change password
+                            </li>
+                            <!-- <li class="list-group-item" onclick="openStat('account-info-content')" id="info-item">
+                                Info
+                            </li> -->
+                        </ul>
+                    </div>
+                    
+                    <div class="col-infos">
+                        <!-- FOR GENERAL -->
+                        <form>
+                        
+                            <section class="info-content Stat" id="account-general-content">
+                                <!-- <div class="media-body">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width=100 height=100>
+                                <input type="file" class="account-settings-fileinput">
+                                </div> -->
+
+                                <div class="card2">
+                                    <span class="account-settings-lbl">Username</span>
+                                    <input class="form-control" id="InputUser" type="text" name="username">
+                                </div>
+
+                                <div class="card2">
+                                    <span class="account-settings-lbl">Full Name</span>
+                                    <input class="form-control"  id="InputName" type="text" name="name">
+                                </div>
+
+                                <div class="card2">
+                                    <span class="account-settings-lbl">Phone Number</span>
+                                    <input class="form-control" id="InputPhone" type="digit" name="phone">
+                                </div>
+
+                                <div class="card2">
+                                    <span class="account-settings-lbl">Address</span>
+                                    <input class="form-control" id="InputAddress" type="text" name="address">
+                                </div>
+
+                                <div class="profile-save-card">
+                                    <button class="profile-save"  id="updateUser"  name="edit"
+                                        onclick="return confirm('Are you sure you want to edit?')">Edit</button>
+                                </div>
+                            </section>
+                        </form>
+                    
+                        <!-- FOR CHANGE PASSWORD -->
+                        <section class="info-content Stat" id="account-change-password-content">
+                            <div>
+                                <div class="card2">
+                                    <span class="account-settings-lbl">Current password</span>
+                                    <input type="password" id="currentPassword" name="new_password">
+                                </div>
+                            
+                                <div class="card2">
+                                    <span class="account-settings-lbl">New password</span>
+                                    <input type="password" id="newPassword" name="new_password">
+                                </div>
+
+                                <div class="card2">
+                                    <span class="account-settings-lbl">Repeat new password</span>
+                                    <input type="password" id="repeatNewPassword" name="repeat_new_password">
+                                </div>
+
+                                
+
+                                <div class="profile-save-card">
+                                    <button class="profile-save"  id="UpdatePass" name="edit_pass" >Edit</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+            </div>
+        </div> <!-- account settings-->
+
+    </div> <!-- main--content-->
+
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/settings.js" type="module"></script>
+    <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+    <script>
+        function openStat(StatName) {
+            var i;
+            var x = document.getElementsByClassName("Stat");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(StatName).style.display = "block";
+
+            
+        }
+
+        // function ajax_fn(url, elementId) {
+        //     if (window.XMLHttpRequest) {
+        //         xmlhttp = new XMLHttpRequest();
+        //     } else {
+        //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        //     }
+        //     xmlhttp.onreadystatechange = function() {
+        //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //             document.getElementById(elementId).innerHTML = "";
+        //             document.getElementById(elementId).innerHTML = xmlhttp.responseText;
+        //         }
+        //     }
+        //     xmlhttp.open("GET", url, true);
+        //     xmlhttp.send();
+        // }
+
+    </script>
+
+</body>
+
+</html>

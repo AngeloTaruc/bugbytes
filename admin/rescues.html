@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn"><a onclick="confirmLogout()">Logout</a></button>
+    </nav>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Rescues List</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper">
+            <div id="pageContent">
+                <div class="search-and-actions">
+                    <div class="final-search">
+                        <div>
+                            <div class="search">
+                                <input type="text" id="searchRescue" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="final-actions">
+                        <button class="final-buttons" onclick="showAddModal()">
+                            <img src="./assets/img/plus-solid.png" class="svg-icon" alt="" width="15" height="15">
+                            <span class="actions-lbl">Add Pet</span>
+                        </button>
+                        <button class="final-buttons" id="Archives-Button">
+                            <img src="./assets/img/box-archive-solid.png" class="svg-icon" alt="" width="15"
+                                height="15">
+                            <span class="actions-lbl">Archives</span>
+                        </button>
+                    </div>
+                    <!-- ADD RESCUE PET -->
+                    <div id="addModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('addModal')">&times;</span>
+                            <div class="create-volunteer-account">
+                                <!-- -->
+                                <div enctype="multipart/form-data">
+                                    <div class="container">
+                                        <div class="details1">
+                                            <div class="images-container">
+                                                <div class="image-container">
+                                                    <label for="before" class="img-lbl">Before:</label>
+                                                    <input class="image" id="imageBefore" name="image1" type="file"
+                                                        accept=".jpg, .jpeg, .png" value="">
+                                                </div>
+                                                <div class="image-container">
+                                                    <label for="after" class="img-lbl">After:</label>
+                                                    <input class="image" id="imageAfter" name="image2" type="file"
+                                                        accept=".jpg, .jpeg, .png" value="">
+                                                </div>
+                                            </div>
+
+                                            <div class="info-container">
+                                                <div class="info-row">
+                                                    <div class="info-cell">
+                                                        <label style="margin-right:1.7em;">Name</label>
+                                                        <input type="text" name="petname" id="pet-name" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="details2">
+                                            <div class="desc">
+                                                <textarea name="petdesc" rows="11" id="petdesc" required></textarea>
+                                            </div>
+                                            <div class="info-container">
+                                                <div class="info-row">
+                                                    <div class="info-cell">
+                                                        <label>Gender</label>
+                                                        <select name="petgen" id="petGender" required>
+                                                            <option disabled selected> ----- </option>
+                                                            <option value="Male"> Male </option>
+                                                            <option value="Female"> Female </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="info-cell">
+                                                        <label>Age</label>
+                                                        <input type="text" name="petage" id="petAge" required>
+                                                    </div>
+                                                    <div class="info-cell">
+                                                        <label>Color</label>
+                                                        <select name="petcolor" id="petColor" required>
+                                                            <option disabled selected> ----- </option>
+                                                            <option value="Black"> Black </option>
+                                                            <option value="White"> White </option>
+                                                            <option value="Brown"> Brown </option>
+                                                            <option value="Red">Red </option>
+                                                            <option value="Gold">Gold </option>
+                                                            <option value="Blue"> Blue </option>
+                                                            <option value="Gray"> Gray </option>
+                                                            <option value="Cream">Cream </option>
+                                                            <option value="Yellow"> Yellow </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="info-cell">
+                                                        <label>Kapon</label>
+                                                        <select name="petkapon" id="petKapon" required>
+                                                            <option disabled selected> ----- </option>
+                                                            <option value="Spayed"> Spayed</option>
+                                                            <option value="Not yet Spayed"> Not yet Spayed</option>
+                                                            <option value="Neutered"> Neutered </option>
+                                                            <option value="Not yet Neutured"> Not yet Neutered </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="info-cell">
+                                                        <label>Vaccine</label>
+                                                        <select name="petvacc" id="petVacc" required>
+                                                            <option disabled selected> ----- </option>
+                                                            <option value="Vaccinated"> Vaccinated </option>
+                                                            <option value="Not yet vaccinated"> Not yet vaccinated
+                                                            </option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="info-cell">
+                                                        <label>Pet Classification</label>
+                                                        <select name="petclass" id="petClass" required>
+                                                            <option disabled selected> ----- </option>
+                                                            <option value="Kitten/Cat"> Kitten/Cat </option>
+                                                            <option value="Puppy/Dog"> Puppy/Dog </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" name="submit" class="btn-add" id="addPets"
+                                            style="margin:10px;">Add Pet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pet Id</th>
+                                <th>Name</th>
+                                <!-- <th>Gender</th> -->
+                                <th>Status</th>
+                                <th style="width: 25%; text-align: center;"> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="PetTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIEW RESCUE PET -->
+            <div id="viewPet-container" class="viewPet-container" style="display: none;">
+                <br>
+                <div class="back-btn" onclick="closeViewPet()">
+                    <img src="../admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20">
+                </div>
+                <div class="pet-infos">
+                    <span id="viewPetName" class="petName"></span>
+                    <div class="pet-cards">
+                        <div class="card">
+                            <img src="./assets/img/age.png" alt="">
+                            <span class="infoTitle">Age</span>
+                            <span id="viewPetAge" class="Iinfo"></span>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/sterilization.png" alt="">
+                            <span class="infoTitle">Gender</span>
+                            <span id="viewPetGender" class="Iinfo"></span>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/vaccination.png" alt="">
+                            <span class="infoTitle">Vaccined</span>
+                            <span id="viewPetVaccine" class="Iinfo"></span>
+                        </div>
+                        <div class="card">
+                            <img src="./assets/img/medical-report.png" alt="">
+                            <span class="infoTitle">Spay/Neuter</span>
+                            <span id="viewPetSpayNeut" class="Iinfo"></span>
+                        </div>
+                    </div>
+                    <div class="pet-desc">
+                        <h3>About</h3>
+                        <p id="viewPetDesc" class="petDesc"></p>
+                    </div>
+                    <div class="pet-img">
+                        <div class="beforeImg">
+                            <img id="viewBeforeImg" style="max-width: 300px;" src="" alt="BeforeRescue">
+                            <span class="infoTitle">Before</span>
+                        </div>
+                        <div class="afterImg">
+                            <img id="viewAfterImg" style="max-width: 300px;" src="" alt="AfterRescue">
+                            <span class="infoTitle">After</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- EDIT RESCUE PET -->
+    <div id="viewInfo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewInfo')">&times;</span>
+            <div>
+                <div class="container">
+                    <div class="details1">
+                        <div class="images-container">
+                            <div class="image-container">
+                                <label for="before" class="img-lbl">Before:</label>
+                                <input class="image" name="image1" id="newImageBefore" type="file"
+                                    accept=".jpg, .jpeg, .png">
+                            </div>
+                            <div class="image-container">
+                                <label for="after" class="img-lbl">After:</label>
+                                <input class="image" name="image2" id="newImageAfter" type="file"
+                                    accept=".jpg, .jpeg, .png">
+                            </div>
+                        </div>
+
+                        <div class="info-container">
+                            <div class="info-row">
+                                <div class="info-cell">
+                                    <label style="margin-right:1.7em;">Name</label>
+                                    <input type="text" name="petname" id="Editpet-name" required>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="details2">
+                        <div class="desc">
+                            <textarea name="petdesc" rows="11" id="Editpetdesc" required></textarea>
+                        </div>
+                        <div class="info-container">
+                            <div class="info-row">
+                                <div class="info-cell">
+                                    <label>Gender</label>
+                                    <select name="petgen" id="EditpetGender" required>
+                                        <option disabled selected> ----- </option>
+                                        <option value="Male"> Male </option>
+                                        <option value="Female"> Female </option>
+                                    </select>
+                                </div>
+                                <div class="info-cell">
+                                    <label>Age</label>
+                                    <input type="text" name="petage" id="EditpetAge" required>
+                                </div>
+                                <div class="info-cell">
+                                    <label>Color</label>
+                                    <select name="petcolor" id="EditpetColor" required>
+                                        <option disabled selected> ----- </option>
+                                        <option value="Black"> Black </option>
+                                        <option value="White"> White </option>
+                                        <option value="Brown"> Brown </option>
+                                        <option value="Red">Red </option>
+                                        <option value="Gold">Gold </option>
+                                        <option value="Blue"> Blue </option>
+                                        <option value="Gray"> Gray </option>
+                                        <option value="Cream">Cream </option>
+                                        <option value="Yellow"> Yellow </option>
+                                    </select>
+                                </div>
+                                <div class="info-cell">
+                                    <label>Kapon</label>
+                                    <select name="petkapon" id="EditpetKapon" required>
+                                        <option disabled selected> ----- </option>
+                                        <option value="Spayed"> Spayed </option>
+                                        <option value="Not yet Spayed"> Not yet Spayed </option>
+                                        <option value="Neutered"> Neutered </option>
+                                        <option value="Not Yet Neutered"> Not Yet Neutered </option>
+                                    </select>
+                                </div>
+                                <div class="info-cell">
+                                    <label>Vaccine</label>
+                                    <select name="petvacc" id="EditpetVacc" required>
+                                        <option disabled selected> ----- </option>
+                                        <option value="Vaccinated"> Vaccinated </option>
+                                        <option value="Not yet vaccinated"> Not yet vaccinated </option>
+                                    </select>
+                                </div>
+                                <div class="info-cell">
+                                    <label>Pet Classification</label>
+                                    <select name="petclass" id="EditpetClass" required>
+                                        <option disabled selected> ----- </option>
+                                        <option value="Kitten/Cat"> Kitten/Cat </option>
+                                        <option value="Puppy/Dog"> Puppy/Dog </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="final-actions">
+                        <!-- <button class="icons">
+                            <img src="../admin/assets/img/pen-to-square-solid.png" width="15" height="15"> 
+                            <span>View</span>
+                        </button> -->
+                        <button class="icons" id="EditButton">
+                            <img src="../admin/assets/img/pen-to-square-solid.png" width="15" height="15">
+                            <span>Edit</span>
+                        </button>
+                        <!-- <button class="icons">
+                            <img src="../admin/assets/img/box-archive-solid.png" width="15" height="15">
+                            <span>Archive</span>
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/modals.js"></script>
+    <script src="../admin/assets/js/AddPets.js" type="module"></script>
+
+</body>
+
+</html>

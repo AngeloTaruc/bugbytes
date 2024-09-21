@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
+    <style>
+        .form { margin: 50px; }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class="flex-column">
+            <label>Name </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/user-solid.png" height="20" viewBox="0 0 32 32" width="20">
+            <input type="text" id="firstname" class="input" placeholder="Firstname" required>
+            <input type="text" id="middleinitial" class="input" placeholder="MI" required>
+            <input type="text" id="lastname" class="input" placeholder="Lastname" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Address </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/house-solid.png" height="20" viewBox="0 0 32 32" width="20">
+            <input type="text" id="address" class="input" placeholder="Enter Complete Address" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Phone Number </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/phone-solid.png" height="20" viewBox="0 0 32 32" width="20">
+            <input type="text" id="phonenum" class="input" placeholder="Enter Phone Number" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Email </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/envelope-solid.png" height="20" viewBox="0 0 32 32" width="20">
+            <input type="text" id="email" class="input" placeholder="Enter Email" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Username </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/at-solid.png" height="20" viewBox="0 0 32 32" width="20">
+            <input type="text" id="username" class="input" placeholder="Enter Username" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Password </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/lock-solid.png" height="20" viewBox="-64 0 512 512" width="20">
+            <input type="password" id="password" class="input" placeholder="Enter Password" required>
+        </div>
+
+        <div class="flex-column">
+            <label>Confirm Password </label>
+        </div>
+        <div class="inputForm">
+            <img src="./assets/img/lock-solid.png" height="20" viewBox="-64 0 512 512" width="20">
+            <input type="password" id="confirmpassword" class="input" placeholder="Enter Confirm Password" required>
+        </div>
+
+        <button class="button-submit" id="signup">Sign Up</button>
+        <p class="p">Already have an account? <a id="login-link" class="span"><span class="span">Login</span></a></p>
+    </div>
+
+    <script type="module">
+
+        import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js '
+        import {getAuth,createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js'
+        import {getDatabase, set, ref as databaseRef} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js'
+    
+const firebaseConfig = {
+    apiKey: "AIzaSyB166FWoQ8GfPHEVtKVy-KmI9jeWul6Pbg",
+    authDomain: "pawsitive-368b1.firebaseapp.com",
+    databaseURL: "https://pawsitive-368b1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "pawsitive-368b1",
+    storageBucket: "pawsitive-368b1.appspot.com",
+    messagingSenderId: "59441375746",
+    appId: "1:59441375746:web:16d10d687aced65786d51b",
+    measurementId: "G-CDSTB89PGK"
+  };
+
+  const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
+
+const localDate = new Date();
+const year = localDate.getFullYear();
+const month = localDate.getMonth() + 1; // Corrected to start from 1
+const day = localDate.getDate(); // Corrected to use getDate() for day
+
+const fullDate = `${year}-${month}-${day}`;
+
+const signup = document.getElementById('signup');
+signup.addEventListener('click', () => {
+  const firstname = document.getElementById('firstname').value;
+  const midname = document.getElementById('middleinitial').value;
+  const lastname = document.getElementById('lastname').value;
+  const address = document.getElementById('address').value;
+  const username = document.getElementById('username').value;
+  const phonenum = document.getElementById('phonenum').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmpassword = document.getElementById('confirmpassword').value;
+
+  if (password === confirmpassword) {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const userId = userCredential.user.uid; // Corrected to use uid
+
+        set(databaseRef(db, `Users/${userId}`), {
+          firstName: firstname,
+          middleInitial: midname,
+          lastName: lastname,
+          username: username,
+          phoneNumber: phonenum,
+          registrationDate: fullDate,
+          address: address,
+          status: 'offline',
+          role: 'Adopter'
+        })
+          .then(() => {
+            alert("Registered");
+            local.reload(true);
+          })
+          .catch((error) => {
+            alert(`${error.message}`);
+          });
+      })
+      .catch((error) => {
+        console.error(`${error.message}`);
+      });
+  } else {
+    alert('Password not matched');
+  }
+});
+
+
+
+  
+
+
+  document.getElementById('login-link').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            window.location.href = 'login.html'; 
+        });
+    </script>
+    
+
+
+</body>
+
+</html>

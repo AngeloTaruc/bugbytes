@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+    
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Merchandise</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper">
+            <div class="search-and-actions">
+                <div class="final-search">
+                    <div>
+                        <div class="search">
+                            <input type="text" id="search" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+                <div class="final-actions">
+                    <button class="final-buttons" onclick="showAddModal()">
+                        <img src="./assets/img/plus-solid.png" class="svg-icon" alt="" width="15" height="15">
+                        <span class="actions-lbl">Add</span>
+                    </button>
+                    <button class="final-buttons" id="Archives">
+                        <img src="./assets/img/box-archive-solid.png" class="svg-icon" alt="" width="15" height="15">
+                        <span class="actions-lbl">Archives</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="addModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('addModal')">&times;</span>
+                    <div class="create-volunteer-account">
+                        <div>
+                            <div class="view-merch-details">
+                                <div class="merch-col">
+                                    <span>Merch Name:</span>
+                                    <input type="text" id="merchName" class="merch-row" required>
+                                </div>
+                                <div class="merch-col">
+                                    <span>Merch Photo:</span>
+                                    <input type="file" id="merchPhoto" class="merch-row" required>
+                                </div>
+                                <div class="merch-col">
+                                    <span>Merch Shopee Link:</span>
+                                    <input type="text" id="merchLink" class="merch-row" required>
+                                </div>
+                                <div class="prog-col">
+                                    <span>Merch Description:</span>
+                                    <textarea id="merchMsg" class="prog-row" rows="5" required></textarea>
+                                </div>
+                                <div class="prog-col">
+                                    <button class="btn-add"  type="submit" id="submit">Add Merch</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="merchid">Merch ID</th>
+                            <th>Merch Name</th>
+                            <th>Merch Image</th>
+                            <th>Merch Link</th>
+                            <th style="width: 25%; text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="MerchadiseTableBody">
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewInfo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewInfo')">&times;</span>
+            <div>
+                <div class="view-merch-details">
+                    <div class="merch-col">
+                        <span>Merch Name:</span>
+                        <input type="text" name="merchName" class="merch-row" id="EditmerchName"
+                            value=""  required>
+                    </div>
+                    <div class="merch-col">
+                            
+                        <span>Merch Photo:</span>
+                        <input type="file" name="merchPhoto" class="merch-row" id="EditPhoto"> 
+                   
+                    </div>
+                    <div class="merch-col">
+                        <span>Merch Shopee Link:</span>
+                        <textarea id="EditmerchMsg" class="prog-row" rows="3"
+                            required></textarea>
+                    </div>
+                    
+                </div>
+                <div class="final-actions">
+                    <button class="icons" id="editbtn">
+                        <img src="../admin/assets/img/pen-to-square-solid.png" width="15" height="15">
+                        Edit
+                    </button>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    <script src="../admin/assets/js/modals.js"></script>
+    <script src="../admin/assets/js/admin-sidebar.js"></script>    
+    <script src="../admin/assets/js/Merchandise.js" type="module"></script>
+    <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+</body>
+
+</html>

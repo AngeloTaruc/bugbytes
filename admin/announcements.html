@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Announcements</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper">
+            <div id="pageContent">
+                <div class="search-and-actions">
+                    <div class="final-search">
+                        <div>
+                            <div class="search">
+                                <input type="text" id="search" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="final-actions">
+                        <button class="final-buttons" onclick="showAddModal()">
+                            <img src="./assets/img/plus-solid.png" class="svg-icon" alt="" width="15" height="15">
+                            <span class="actions-lbl"> Add </span>
+                        </button>
+                        <button class="final-buttons" id="Archives-Button">
+                            <img src="./assets/img/box-archive-solid.png" class="svg-icon" alt="" width="15"
+                                height="15">
+                            <span class="actions-lbl">Archives</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="createAnnouncement">
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date Posted</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th id="action" style="width: 25%; text-align: center;">Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tableAnnouncementBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- ADD ANNOUNCMENTS -->
+                    <div id="addModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('addModal')">&times;</span>
+                            <div class="create-volunteer-account">
+                                <div>
+                                    <div class="view-merch-details">
+                                        <div class="prog-col">
+                                            <span>Announcement Title:</span>
+                                            <input type="text" name="announcementTitle" class="prog-row" id="progName"
+                                                required>
+                                        </div>
+                                        <div class="prog-col">
+                                            <span>Announcement Category:</span>
+                                            <select id="progCat">
+                                                <option value="Announcement">Announcement</option>
+                                                <option value="Transparency">Transparency</option>
+                                            </select>
+                                        </div><br>
+                                        <div class="prog-col">
+                                            <span>Announcement Description:</span>
+                                            <textarea name="announcementMsg" class="prog-row" rows="10" id="progMsg"
+                                                required></textarea>
+                                        </div>
+                                        <div class="prog-col">
+                                            <span>Announcement Image:</span>
+                                            <input type="file" name="announcementPoster" id="programeImage"
+                                                accept=".jpg, .jpeg, .png" class="prog-row">
+                                        </div>
+                                        <div class="prog-col">
+                                            <button class="btn-add" type="submit" name="submit"
+                                                id="submit">Post</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- VIEW ANNOUNCEMENT -->
+            <div id="announcementModal" class="notification-content" style="display: none;">
+                <br>
+                <img src="../admin/assets/img/arrow-left-solid.png" alt="" width="20" height="20" class="back-btn"
+                    onclick="closeNotification()">
+                <div class="noti-detailed-content">
+                    <div class="noti-content-title" id="modal-title"></div>
+                    <div class="noti-content-dateposted" id="modal-posted"></div>
+                    <div class="noti-content-body" id="modal-message"></div>
+                    <div class="noti-content-img" id="modal-img"></div>
+                </div>
+            </div>
+
+            <!-- EDIT ANNOUCNCEMT -->
+            <div id="editInfo" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('editInfo')">&times;</span>
+                    <div class="create-volunteer-account">
+                        <div>
+                            <div class="view-merch-details">
+                                <div class="prog-col">
+                                    <span>Announcement Title:</span>
+                                    <input type="text" name="announcementTitle" class="prog-row" id="EprogName" required>
+                                </div>
+                                <div class="prog-col">
+                                    <span>Announcement Category:</span>
+                                    <select id="EprogCat">
+                                        <option value="Announcement">Announcement</option>
+                                        <option value="Transparency">Transparency</option>
+                                    </select>
+                                </div><br>
+                                <div class="prog-col">
+                                    <span>Announcement Description:</span>
+                                    <textarea name="announcementMsg" class="prog-row" rows="10" id="EprogMsg"
+                                        required></textarea>
+                                </div>
+                                <div class="prog-col">
+                                    <span>Announcement Image:</span>
+                                    <input type="file" name="announcementPoster" id="EprogrameImage"
+                                        accept=".jpg, .jpeg, .png" class="prog-row">
+                                </div>
+                                <div class="prog-col">
+                                    <button class="btn-add" type="submit" name="submit" id="submitEdit">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../admin/assets/js/admin-sidebar.js"></script>
+        <script src="../admin/assets/js/modals.js"></script>
+
+        <script src="../admin/assets/js/announcement.js" type="module"></script>
+        <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+
+
+
+</body>
+
+</html>

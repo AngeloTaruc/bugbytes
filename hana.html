@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="./assets/css/hana.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header id="navbar">
+            <nav class="navbar-container container">
+                <a href="#home" class="navbar-link" style="background-color: transparent;">
+                    <img src="../assets/img/logo.png" alt="" class="navbar-logo">
+                    Hope for Abused and Neglected Animals
+                </a>
+
+                <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu"
+                    aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div id="navbar-menu" aria-labelledby="navbar-toggle">
+                    <ul class="navbar-links" id="navbar-links">
+                        <li class="navbar-item active"><a class="navbar-link" href="#aboutus">About Us</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="#adopt">Adopt</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="#sponsor-donate">Sponsor & Donate</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="#volunteer">Volunteer</a></li>
+                        <li class="navbar-item"><a class="navbar-link" href="#buymerch">Buy Merch</a></li>
+                        <li class="navbar-item"><a class="navbar-link navbar-link-login" href="roles.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main--content">
+            <section id="home" class="section">
+                <div class="home">
+                    <div class="home-card" style="padding-left: 50px;">
+                        <h1 style="font-size: 5vw; line-height: 5vw;">ADOPT YOUR NEW FRIEND.</h1>
+                        <p style="font-size: 16px; font-weight: 500;">At HANA Shelter, we believe that every animal
+                            deserves a loving home. Our mission is to rescue,
+                            rehabilitate, and find forever families for abused and neglected animals. Whether you’re
+                            looking
+                            to adopt a furry friend, sponsor, or make a difference through donations, you’ve
+                            come to the right place.</p>
+                        <button id="help-section" class="mod-button">I WANT TO HELP</button>
+                    </div>
+                    <div class="home-card">
+                        <img src="./assets/img/HOME-bg.png" alt="" class="home-card-img">
+                    </div>
+                </div>
+
+                <div class="newsfeed-header">
+                    <button id="viewAllBtn" class="view-all-btn">View All Programs</button>
+                </div>
+
+                <div class="home-newsfeed">
+                    <div class="newsfeed-card">
+                        <img class="news-image" src="" alt="">
+                        <div class="news-category">PROGRAMS</div>
+                        <div class="news-heading">TITLE OF PROGRAMS</div>
+                    </div>
+                </div>
+
+
+                <div class="program-modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeProgramModal()">&times;</span>
+                        <h2 class="modal-title"></h2>
+                        <img class="modal-image" src="" alt="Program Image">
+                        <p class="modal-description"></p>
+                    </div>
+                </div>
+
+                <div class="home-analytics-container">
+                    <div class="hanc1">
+                        <span class="hanc1-title">With your help, we're making a difference every day!</span>
+                    </div>
+                    <div class="hanc-row">
+                        <div class="hanc-col">
+                            <span id="shelteredCount" class="hanc-col-lbl-1"> </span>
+                            <span class="hanc-col-lbl-title">SHELTERED</span>
+                        </div>
+                        <div class="hanc-col">
+                            <span id="rescuedCount" class="hanc-col-lbl-1"> </span>
+                            <span class="hanc-col-lbl-title">RESCUED</span>
+                        </div>
+                        <div class="hanc-col">
+                            <span id="kaponCount" class="hanc-col-lbl-1"></span>
+                            <span class="hanc-col-lbl-title">SPAYED & NEUTERED</span>
+                        </div>
+                        <div class="hanc-col">
+                            <span id="rehomedCount" class="hanc-col-lbl-1"></span>
+                            <span class="hanc-col-lbl-title">REHOMED</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="help-section"></div>
+                <div class="home-help-container">
+                    <span class="hhc-title">How You Can Help</span>
+                    <div class="hhc-row">
+                        <div class="hhc-col-box">
+                            <img src="../assets/img/adopt.png" alt="" class="action-img">
+                            <!-- <span class="hhc-title">ADOPT</span> -->
+                            <p>Many of our Adoptables from our shelters have been rescued from death row,
+                                from local pounds or from abusive environments. By choosing to adopt, you are giving
+                                them the
+                                chance to find a new home and to feel the love and security they deserve.</p>
+                            <a class="navbar-link mod-button" href="#adopt">ADOPT</a>
+                        </div>
+                        <div class="hhc-col-box">
+                            <img src="../assets/img/sponsor.png" alt="" class="action-img">
+                            <!-- <span class="hhc-title">SPONSOR</span> -->
+                            <p>While not everyone can foster or adopt, there are always other ways to help our rescues.
+                                Through
+                                our Sponsor-A-Rescue Program, our rescues now have a wonderful support system rooting
+                                for their
+                                full recovery and continuous comfort while at the shelter.</p>
+                            <a class="navbar-link mod-button" href="#sponsor-donate">SPONSOR</a>
+                        </div>
+                        <div class="hhc-col-box">
+                            <img src="../assets/img/donate.png" alt="" class="action-img">
+                            <!-- <span class="hhc-title hhc-title-2">DONATE</span><br> -->
+                            <p>As a non-profit organization, HANA Shelter operates and relies heavily on donations from
+                                the
+                                community. We are always called upon to rescue animals suffering from abuse and neglect.
+                                And none of it is possible without <br> your support.</p>
+                            <a class="navbar-link mod-button" href="#sponsor-donate">DONATE</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="aboutus" class="section">
+                <!-- <div class="margin-top" style="margin-top: 100px;"></div> -->
+                <div class="section-title">About Us</div>
+                <div class="abt-hana">
+                    <div class="image-wrapper">
+                        <img src="./assets/img/home2.jpg" alt="Company team meeting">
+                    </div>
+                    <div class="text-content">
+                        <h2>About HANA Shelter</h2>
+                        <p><span class="bold">HANA Shelter,</span> formerly known as <span class="bold">SANA (Saving
+                                Abused and
+                                Neglected Animals),</span> was founded by <span class="bold">Ernie Garcia</span> in
+                            <span class="bold">April 2020.</span> Amidst the pandemic season, Ernie, a solo rescuer,
+                            recognized the urgent need to create a safe haven for stray animals. Starting with 30
+                            rescued dogs
+                            kept at his personal home,
+                            HANA has now grown into a sanctuary for nearly <span class="bold">200 rescued
+                                dogs.</span><br><br>
+                            Located on a <span class="bold">500 sq.m lot in Baras, Rizal,</span> HANA Shelter operates
+                            with a
+                            dedicated team. In addition
+                            to Ernie, there are <span class="bold">7 other administrators</span> and <span
+                                class="bold">5
+                                caretakers</span> onsite, all working tirelessly to manage
+                            the shelter’s daily operations.
+                        </p><br>
+                    </div>
+                </div>
+                <div class="abt-mv">
+                    <div class="vision">
+                        <div class="icon">
+                            <img src="./assets/img/logo.png" width="100" height="100">
+                        </div>
+                        <div class="content">
+                            <h2>Our Vision</h2>
+                            <p>To be a self-sustaining animal shelter that will continue to provide adequate care to
+                                rescued animals.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission">
+                        <div class="content">
+                            <h2>Our Mission</h2>
+                            <p>Rescue, Rehabilitate, Rehome, Educate.</p>
+                        </div>
+                        <div class="icon">
+                            <img src="./assets/img/logo.png" width="100" height="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="abt-commitment">
+                    <h2 class="abtc-title">HANA Shelter Commitments</h2>
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="icon"><img src="./assets/img/paw-solid.png" alt="" height="20" width="20"></div>
+                            <div class="icon">Feeding and Care</div>
+                            <p>HANA rescues receive proper care and nutrition. They are fed twice a day with a balanced
+                                diet that
+                                includes rice, dog food, sawdust, meat, and vegetables.</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon"><img src="./assets/img/paw-solid.png" alt="" height="20" width="20"></div>
+                            <div class="icon">Health Initiatives</div>
+                            <p>Annually, HANA conducts Spay and Neuter programs and Mass Vaccination projects to ensure
+                                the well-being of its furry residents.</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon"><img src="./assets/img/paw-solid.png" alt="" height="20" width="20"></div>
+                            <div class="icon">Community Support</div>
+                            <p>HANA sustains itself entirely through the generous donations of its supporters. To raise
+                                funds, the shelter engages in online merchandise sales and collaborates with other
+                                organizations for income opportunities.</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon"><img src="./assets/img/paw-solid.png" alt="" height="20" width="20"></div>
+                            <div class="icon">Education and Advocacy</div>
+                            <p>As strong advocates for animal welfare, HANA actively participates in speaking
+                                engagements to promote responsible pet ownership and animal rights.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="abt-team">
+                    <h2 class="abtc-title">HANA Shelter Team</h2>
+                    <p class="team-description">
+                        Our dedicated team consists of - administrators and - onsite caretakers, all working tirelessly
+                        to ensure the smooth operation of our shelter and the well-being of our animal residents.
+                    </p>
+                    <div class="team-grid" id="Team-Content">
+
+
+                    </div>
+                </div>
+
+                <div class="getintouch">
+                    <div class="git1-details">
+                        <span class="git1-title">Get in Touch</span>
+                        <span>Home for Abused and Neglected Animals</span>
+                        <span>Sitio Tuazon Brgy San Jose</span>
+                        <span>Baras, Rizal</span>
+                        <span>0909 391 8007</span>
+                        <span><button class="git-contactus">Contact Us</button></span>
+                    </div>
+                    <div class="git2-maps">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.9849281980655!2d121.26999467598256!3d14.542854585936697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397eb5f1c9bafd7%3A0x47b56ac51db18623!2sHANA%20Shelter!5e0!3m2!1sen!2sph!4v1714141761524!5m2!1sen!2sph"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="contactModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="cus-container">
+                            <div class="cus-left">
+                                <span class="cus1">We welcome your questions, comments, and donations.</span>
+                                <span class="cus2">Please use the contact form below if you have general information
+                                    questions or questions about the grants program. You may also use the form below to
+                                    modify information regarding your recurring donation (such as personal information
+                                    or donation amount).</span>
+                                <span class="cus2">To send your donation, <a href="login.php" class="cus-click">sign
+                                        here</a>.</span>
+                            </div>
+                            <div class="cus-right">
+                                <span style="font-size:12px; color:gray;">Required fields are marked *</span>
+                                <form id="customerForm">
+                                    <div class="cus-fields">
+                                        <span>Name*</span>
+                                        <input type="text" id="ContactName" class="cus-inputs">
+                                        <span>Email*</span>
+                                        <input type="text" id="ContactEmail" class="cus-inputs">
+                                        <span>Subject*</span>
+                                        <input type="text" id="ContactSubj" class="cus-inputs">
+                                        <span>Your Message*</span>
+                                        <textarea id="cus-msg" cols="30" rows="5" class="cus-inputs"></textarea>
+                                        <input type="submit" value="Submit" id="ContactSubmit" class="cus-submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="adopt" class="section">
+                <div class="section-title">Adopt</div>
+                <div id="adopt-section" class="adopt-content">
+
+
+
+                </div>
+
+
+                <div id="abtMe-modal" class="modal">
+                    <div class="abtMe-modal-content">
+                        <span class="abtMe-close">&times;</span>
+                        <div class="abtMe-modal-left">
+                            <img id="abtMe-modal-image" src="" alt="">
+                        </div>
+                        <div class="abtMe-modal-right">
+                            <h2 id="abtMe-modal-name"></h2>
+                            <p>Gender: <span id="abtMe-modal-gender"></span></p>
+                            <p>Age: <span id="abtMe-modal-age"></span></p>
+                            <p>Colour: <span id="abtMe-modal-colour"></span></p>
+                            <p>Description: <span id="abtMe-modal-description"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sponsor-donate" class="section">
+                <div class="sponsor-donation-header">
+                    <h1 class="sponsor-donate-title">TOGETHER WE CAN MAKE <br> A DIFFERENCE</h1>
+                    <p class="sponsor-donate-subtitle">Your generosity is the heartbeat of HANA Shelter. As we rely
+                        solely on your donations,
+                        every contribution directly supports our mission to provide a safe haven for those in need.
+                        Together, we can offer hope, healing, and a brighter future for our community.</p>
+                    <button id="donateNowBtn" class="mod-button" style="text-align: center; font-size: 24px;">DONATE
+                        NOW</button>
+                    <div id="sponsorDonationContent"></div>
+                </div>
+                <div class="sponsor-donation-content">
+                    <p>The heart of our mission to provide love, care, and support to animals in need. Your generosity
+                        fuels our efforts to rescue, rehabilitate, and rehome countless animals, ensuring they have the
+                        chance to thrive and find their forever homes.
+                        <br><br>
+                        Every donation, no matter the size, makes a significant impact. Your support enables us to
+                        provide essential veterinary care, nutritious food, comfortable shelter, and enrichment
+                        activities for our animals. It also helps us expand our reach, raise awareness, and advocate for
+                        animal welfare on a broader scale. Whether you choose to make a in kind or monetary donation,
+                        your kindness reverberates far beyond our walls, touching the lives of animals and humans alike.
+                    </p>
+                    <h1>Donate In-Kind</h1>
+                    <p>Donations can be dropped off at Sitio Tuazon Brgy San Jose Baras, Rizal</p>
+                    <div class="wishlist-container">
+                        <div class="wishlist-card">
+                            <h3>CATS & DOGS WISH LIST</h3>
+                            <ul>
+                                <li>Dog food (kibble and canned)</li>
+                                <li>Cat food (kibble and canned)</li>
+                                <li>Crates, carriers or cages</li>
+                                <li>Pee pads</li>
+                                <li>Scratching posts for the cats</li>
+                                <li>Brushes and toys for cats</li>
+                                <li>Vaccines, medicine and vitamins</li>
+                                <li>Dog and cat treats</li>
+                                <li>Leashes, harnesses and collars</li>
+                            </ul>
+                        </div>
+                        <div class="wishlist-card">
+                            <h3>SHELTER WISH LIST</h3>
+                            <ul>
+                                <li>Detergent powder and bleach</li>
+                                <li>Dishwashing paste or liquid</li>
+                                <li>Bath towels</li>
+                                <li>Garbage bags (XXL)</li>
+                                <li>Foot rugs or door mats</li>
+                                <li>Clinic supplies (alcohol, cotton, etc.)</li>
+                                <li>Old newspapers</li>
+                                <li>Toilet paper</li>
+                                <li>Mops and brooms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="monetary-container">
+                        <h1>Donate Monetary</h1>
+                        <div class="channels-container">
+                            <div class="channel-card">
+                                <img src="./assets/img/PayPal-Logo.png" alt="">
+                                <h3>PayPal</h3>
+                                <p>garcia_1029@yahoo.com</p>
+                                <p>Ernie Garcia</p>
+                            </div>
+                            <div class="channel-card">
+                                <img src="./assets/img/gcash-logo.png" alt="">
+                                <h3>Gcash</h3>
+                                <p>0909 3918 007</p>
+                                <p>Ernie Garcia</p>
+                            </div>
+                            <div class="channel-card">
+                                <img src="./assets/img/gotyme-logo.png" alt="">
+                                <h3>GoTyme</h3>
+                                <p>013810774533</p>
+                                <p>Ernie Garcia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sponsor-donation-announcement">
+                    <div class="home-donatefeed">
+                        <div class="donatefeed-card">
+                            <img class="donate-image" src="" alt="">
+                            <div class="donate-category"></div>
+                            <div class="donate-heading">TITLE OF Announcement</div>
+                        </div>
+                    </div>
+
+                    <div class="donate-modal" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeProgramModal()">&times;</span>
+                            <h2 class="donate-title"></h2>
+                            <img class="donate-image" src="" alt="Program Image">
+                            <p class="donate-description"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="volunteer" class="section">
+                <div class="volunteer-title">
+                    <div class="v-card">
+                        <span>FROM HURT TO HOPE:</span><br>
+                        <span>Become a Volunteer at HANA Shelter</span>
+                        <p>Here, you have the opportunity to become an essential part of our compassionate community,
+                            lending your time, skills, and heart to make a tangible difference in the lives of animals
+                            in need.</p>
+                    </div>
+                    <div class="v-card">
+                        <img src="./assets/img/VOLUNTEER.png" alt="">
+                    </div>
+                </div>
+                <div class="vol-steps">
+                    <div class="vol-steps-box">
+                        <img src="./assets/img/step1.png" alt="" class="step-logo">
+                        <span class="step-title">Step 1</span>
+                        <p class="step-info">Review the details for open roles <a href="#" class="step-here"
+                                id="open-popup">here.</a></p>
+                    </div>
+
+                    <div id="popup-box" class="popup-box">
+                        <div class="popup-content">
+                            <span class="close-popup" id="close-popup">&times;</span>
+                            <h2>Volunteer Roles</h2>
+                            <p>Here are the details for the open roles...</p>
+                            <ul>
+                                <li>Bathe Dogs</li>
+                                <li>Walk the Dogs</li>
+                                <li>Socialize the Rescues</li>
+                                <li>Help with Feeding in the Afternoon</li>
+                                <li>Social Media Activities</li>
+                                <li>Video/Photo Editing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="vol-steps-box">
+                        <img src="./assets/img/step2.png" alt="" class="step-logo">
+                        <span class="step-title">Step 2</span>
+                        <p class="step-info">Choose the role that resonates you.</p>
+                    </div>
+                    <div class="vol-steps-box">
+                        <img src="./assets/img/step3.png" alt="" class="step-logo">
+                        <span class="step-title">Step 3</span>
+                        <p class="step-info">Fill out the Application Form below.</p>
+                    </div>
+                </div>
+                <div class="volunteer-form">
+                    <div class="form-container">
+                        <div class="form-card">
+                            <h2>HANA Shelter Volunteer Application Form</h2>
+                            <h4>Thank you for your interest in joining HANA Shelter as a volunteer. We're
+                                looking
+                                forward to getting to know you through this application form!</h4>
+                        </div>
+                        <div class="form-card">
+
+                            <span class="form-question">Have you volunteered with HANA Shelter before?</span>
+                            <select name="form-q1" id="formQ1" required class="q-select">
+                                <option disabled selected>Choose</option>
+                                <option value="yes">Yes, I have.</option>
+                                <option value="no">No, this is my first time.</option>
+                            </select>
+
+                            <div class="form-line"></div>
+                            <span class="form-title">About You</span>
+
+                            <div class="qbox-container">
+                                <div class="q-box">
+                                    <span class="form-question">Name</span>
+                                    <input type="text" name="form-q2" id="formQ2" class="form-inputs" required>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Age</span>
+                                    <input type="text" name="form-q3" id="formQ3" class="form-inputs" required>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Gender</span>
+                                    <select name="form-q4" id="formQ4" required class="q-select">
+                                        <option disabled selected>Choose</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Male">Male</option>
+                                    </select>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Mobile Number</span>
+                                    <input type="text" name="form-q5" id="formQ5" class="form-inputs" required>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Email</span>
+                                    <input type="email" name="form-q6" id="formQ6" class="form-inputs" required>
+                                </div>
+                            </div>
+
+                            <div class="form-line"></div>
+
+                            <div class="qbox-container">
+                                <div class="q-box">
+                                    <span class="form-question">How did you learn about this volunteer
+                                        opportunity?</span>
+                                    <input type="text" name="form-q7" id="formQ7" class="form-inputs" required>
+                                </div>
+                            </div>
+
+                            <div class="form-line"></div>
+                            <span class="form-title">Volunteer Application Details</span>
+
+                            <div class="qbox-container">
+                                <div class="q-box">
+                                    <span class="form-question">What motivated you to volunteer and get involved
+                                        with animal
+                                        welfare through HANA Shelter?</span>
+                                    <input type="text" name="form-q8" id="formQ8" class="form-inputs" required>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Which role are you primarily interested in <br>
+                                        applying for?</span>
+                                    <select name="form-q9" id="formQ9" required class="q-select" required>
+                                        <option disabled selected>Choose</option>
+                                        <option value="Help clean and Organize the Shelter">Help clean and
+                                            Organize the Shelter</option>
+                                        <option value="Bathe Dogs">Bathe Dogs</option>
+                                        <option value="Walk the Dogs">Walk the Dogs</option>
+                                        <option value="Socialize the Rescues">Socialize the Rescues</option>
+                                        <option value="Help with Feeding in the Afternoon">Help with Feeding in
+                                            the Afternoon</option>
+                                        <option value="Social Media Activities">Social Media Activities</option>
+                                        <option value="Video/Photo Editing">Video/Photo Editing</option>
+                                    </select>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Can you describe your skills, strengths, and any
+                                        previous
+                                        experiences that have prepared you for the above volunteer role at HANA
+                                        Shelter?</span>
+                                    <textarea name="form-q10" id="formQ10" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+
+                                <div class="q-box">
+                                    <span class="form-question">What other unique skills, experiences, or
+                                        perspectives do you
+                                        bring to HANA Shelter as a volunteer?</span>
+                                    <textarea name="form-q11" id="formQ11" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-line"></div>
+                            <span class="form-title">Availability for Volunteer Work</span>
+
+                            <div class="qbox-container">
+                                <div class="q-box">
+                                    <span class="form-question">How many days per week are you able to allot for
+                                        volunteer
+                                        work?</span>
+                                    <select name="form-q12" id="formQ12" required class="q-select">
+                                        <option disabled selected>Choose</option>
+                                        <option value="7 days of the week">7 days of the week</option>
+                                        <option value="4-6 days of the week">4-6 days of the week</option>
+                                        <option value="2-3 days of the week">2-3 days of the week</option>
+                                        <option value="most likely only once a week">most likely only once a
+                                            week</option>
+                                    </select>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">How are you able to participate in volunteer
+                                        work?</span>
+                                    <select name="form-q13" id="formQ13" required class="q-select">
+                                        <option disabled selected>Choose</option>
+                                        <option value="On-site">On-site</option>
+                                        <option value="Virtual">Virtual</option>
+                                        <option value="Both">Both</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-line"></div>
+                            <span class="form-title">Almost done</span>
+
+                            <div class="qbox-container">
+                                <div class="q-box">
+                                    <span class="form-question">How familiar are you with the advocacies of HANA
+                                        Shelter?</span>
+                                    <select name="form-q14" id="formQ14" required class="q-select">
+                                        <option disabled selected>Choose</option>
+                                        <option value="Very familiar">Very Familiar</option>
+                                        <option value="Somewhat familiar">Somewhat familiar</option>
+                                        <option value="Not familiar at all">Not familiar at all</option>
+                                    </select>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">What do animal welfare and animal rights mean to
+                                        you?</span>
+                                    <textarea name="form-q15" id="formQ15" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">How do you contribute to animal welfare in your
+                                        daily activities <br>
+                                        or lifestyle?</span>
+                                    <textarea name="form-q16" id="formQ16" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">How would you describe the current state of
+                                        animal welfare and
+                                        animal rights in the Philippines?</span>
+                                    <textarea name="form-q17" id="formQ17" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Could you tell us about the animals you currently
+                                        care for <br> at
+                                        home?</span>
+                                    <textarea name="form-q18" id="formQ18" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+                                <div class="q-box">
+                                    <span class="form-question">Is there anything else you'd like to tell us
+                                        before you formally
+                                        submit your volunteer application?</span>
+                                    <textarea name="form-q19" id="formQ19" cols="10" rows="2" class="q-txtarea"
+                                        required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-btn-container">
+                                <button type="submit" name="submit-form" id="ApplicationSubmit" class="mod-button"
+                                    style="font-size: 14px;">Submit
+                                    Application</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="buymerch" class="section">
+                <div class="merchandise-header">
+                    <h1>
+                        DISCOVER OUR <span class="highlight">PAWSITIVELY</span> AMAZING MERCHANDISE
+                    </h1>
+                    <p class="merchandise-subtitle">Every purchase helps support our shelter, which relies mainly on
+                        merchandise sales.</p><br>
+                    <button class="mod-button-merch">Explore</button>
+                </div>
+                <div id="merchandise-section" class="merchandise-content">
+
+
+
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <!-- <div class="footer1">
+                <span class="footer-titles">Sign up and Stay Informed</span>
+                <p>Our website keeps you up to date about how shelters and rescues <br>
+                    use your grants to help dogs.
+                </p>
+                <button class="f-signup"><a href="signup.php">Sign up</a></button>
+            </div> -->
+            <div class="footer2">
+                <div class="f2-logo">
+                    <img src="../assets/img/logo.png" alt="HANA Logo">
+                </div>
+                <nav class="f2-takeaction" aria-label="Take Action">
+                    <span class="footer-titles">Take Action</span>
+                    <ul>
+                        <li><a class="navbar-link" href="#adopt"
+                                style="all: unset; color: #3ac1e3; cursor: pointer;">Adopt</a></li>
+                        <li><a class="navbar-link" href="#sponsor-donate"
+                                style="all: unset; color: #3ac1e3; cursor: pointer;">Sponsor</a></li>
+                        <li><a class="navbar-link" href="#sponsor-donate"
+                                style="all: unset; color: #3ac1e3; cursor: pointer;">Donate</a></li>
+                        <li><a class="navbar-link" href="#volunteer"
+                                style="all: unset; color: #3ac1e3; cursor: pointer;">Volunteer</a></li>
+                    </ul>
+                </nav>
+                <nav class="f2-learnmore" aria-label="Learn More">
+                    <span class="footer-titles">Learn More</span>
+                    <ul>
+                        <li><a class="navbar-link" href="#aboutus"
+                                style="all: unset; color: #3ac1e3; cursor: pointer;">About Us</a>
+                        <li><a class="navbar-link" href="#buymerch"
+                                style="all: unset; color: #3ac1e3; cursor: pointer;">Buy Merch</a></li>
+                    </ul>
+                </nav>
+                <div class="f2-followus">
+                    <span class="footer-titles">Follow Us</span>
+                    <div class="f2-socials">
+                        <ul>
+                            <li><a href="https://www.facebook.com/thesanashelter"><img src="../assets/img/facebook.png"
+                                        alt="Facebook" height="20" width="20"></a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="https://www.instagram.com/hanashelter1"><img src="../assets/img/instagram.png"
+                                        alt="Facebook" height="20" width="20"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer3">
+                <p>BUGBYTES © 2024</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./assets/js/topbar.js"></script>
+    <script src="./assets/js/landingPage.js" type="module"></script>
+</body>
+
+</html>

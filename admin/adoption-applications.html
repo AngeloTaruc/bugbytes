@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="./assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn"><a onclick="confirmLogout()" id="logout-btn">Logout</a></button>
+    </nav>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Adoption Applications</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper" id="applicationsTable">
+            <div class="search-and-actions">
+                <div class="final-search">
+                    <form>
+                        <div class="search">
+                            <input type="text" id="searchInput" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+                <div class="final-actions">
+                    <button class="final-buttons" onclick="showAddTimeslot()">
+                        <img src="./assets/img/plus-solid.png" alt="" width="15" height="15">
+                        <span class="actions-lbl"> Add Interview Timeslots </span>
+                    </button>
+
+                    <div id="addTimeslotModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('addTimeslotModal')">&times;</span>
+                            <div>
+                                <span>Please enter available time and date for the interview</span>
+                                <input type="date" id="date-interview" required><br>
+                                <input type="time" id="time-interview" required><br><br>
+                                <button class="proceed-btn" id="TimeSlotBtn">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <div class="prog-tabs">
+                <button class="tab" id="all-tab" data-status="all">All</button>
+                <button class="tab" id="underReview-tab" data-status="Under Review">Under Review</button>
+                <button class="tab" id="interviewScheduled-tab" data-status="Interview Scheduled">Interview
+                    Scheduled</button>
+                <button class="tab" id="doneInterview-tab" data-status="Done Interview">Done Interview</button>
+                <button class="tab" id="approvalDecision-tab" data-status="Approval Decision">Approval Decision</button>
+            </div>
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Application ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Date Applied</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ApplicationTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div id="viewForm" class="inbox-container" style="display:none;">
+            <div class="ic-nav">
+                <button class="ic-nav-back" onclick="hideForm()">
+                    <img src="./assets/img/arrow-left-solid.png" alt="" height="15" width="15">
+                </button>
+            </div>
+            <div class="adoption-form">
+                <span>Applicant Information</span>
+            </div>
+            <form class="adoption-form" onsubmit="return false;">
+                <input type="text" id="adoptPetName" name="adoptPetName" readonly>
+
+                <section class="applicants-info">
+                    <h3>Applicant Information</h3>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="Polly" readonly><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" readonly><br><br>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" value="123-456-7890" readonly><br><br>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="1234 Main St" readonly><br><br>
+                </section>
+
+                <div class="line-border"></div>
+
+                <section class="about-your-home">
+                    <h3>About Your Home</h3>
+                    <label for="living-situation">Living Situation:</label>
+                    <input type="text" id="living-situation" name="living_situation" value="Apartment" readonly><br><br>
+                    <label for="members-allergic">Are any members of your household allergic to animals?</label>
+                    <input type="text" id="members-allergic" name="members_allergic" value="No" readonly><br><br>
+                    <label for="family-members">Number of Family Members:</label>
+                    <input type="text" id="family-members" name="family_members" value="4" readonly><br><br>
+                    <label for="children-under-12">Number of Children Under 12:</label>
+                    <input type="text" id="children-under-12" name="children_under_12" value="2" readonly><br><br>
+                </section>
+
+                <div class="line-border"></div>
+
+                <section class="additional-info">
+                    <h3>Additional Information</h3>
+                    <label for="why-adopt">Why do you want to adopt a pet?</label>
+                    <textarea id="why-adopt" name="why_adopt" readonly>For companionship</textarea><br><br>
+                    <label for="previous-pets">Have you had pets before? If so, what kind?</label>
+                    <textarea id="previous-pets" name="previous_pets" readonly>Yes, a dog</textarea><br><br>
+                    <label for="pets-move">What happens to your pet if or when you move?</label>
+                    <textarea id="pets-move" name="pets_move" readonly>The pet will move with us</textarea><br><br>
+                </section>
+
+                <div class="line-border"></div>
+
+                <section class="interview-info">
+                    <h3>Interview</h3>
+                    <label for="zoom-date">Date</label>
+                    <input type="text" id="zoom-date" name="zoom_date" value="2024-06-24" readonly><br><br>
+                    <label for="zoom-time">Time</label>
+                    <input type="time" id="zoom-time" name="zoom_time" value="12:30" readonly><br>
+                </section>
+
+                <div>
+                    <button type="button" id="InterviewProceed" class="proceed-btn ProceedInterview"
+                        onclick="showAddModal()">Proceed to Interview</button>
+                    <button type="button" id="InterviewDone" class="proceed-btn">Done Interview</button>
+                    <button type="button" id="InterviewDecision" class="proceed-btn">Accept</button>
+                    <button type="button" id="InterviewDecision1" class="proceed-btn">Reject</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addModal')">&times;</span>
+                <div>
+                    <span>Please enter a Google Meet link for the interview</span>
+                    <input type="text" id="meet-link" name="meet_link" required><br><br>
+                    <button class="proceed-btn" id="SendMeet">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/modals.js"></script>
+    <script src="../admin/assets/js/Applications.js" type="module"></script>
+</body>
+
+</html>

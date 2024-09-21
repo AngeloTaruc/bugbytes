@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope for Abused and Neglected Animals</title>
+    <link rel="stylesheet" href="../admin/assets/css/admin.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png">
+</head>
+
+<body>
+    <nav class="sidebar show-sidebar">
+        <div class="logo-sidebar">
+            <img src="../admin/assets/img/logo.png" alt="HANA">
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="../admin/dashboard.html">
+                    <img src="../admin/assets/img/dashboard.png" alt="icon" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/rescues.html">
+                    <img src="../admin/assets/img/pet-caree.png" alt="icon" width="20" height="20">
+                    <span>Rescues</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/adoption-applications.html">
+                    <img src="../admin/assets/img/application.png" alt="icon" width="20" height="20">
+                    <span>Applications</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/donations.html">
+                    <img src="../admin/assets/img/care.png" alt="icon" width="20" height="20">
+                    <span>Donations</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/programs.html">
+                    <img src="../admin/assets/img/calendar.png" alt="icon" width="20" height="20">
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/announcements.html">
+                    <img src="../admin/assets/img/loudspeaker.png" alt="icon" width="20" height="20">
+                    <span>Announcements</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/merchandise.html">
+                    <img src="../admin/assets/img/pet-food.png" alt="icon" width="20" height="20">
+                    <span>Merchandise</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/volunteers.html">
+                    <img src="../admin/assets/img/volunteer.png" alt="icon" width="20" height="20">
+                    <span>Volunteers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/inquiries.html">
+                    <img src="../admin/assets/img/conversation.png" alt="icon" width="20" height="20">
+                    <span>Inquiries</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/users.html">
+                    <img src="../admin/assets/img/group.png" alt="icon" width="20" height="20">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/employees.html">
+                    <img src="../admin/assets/img/employees.png" alt="icon" width="20" height="20">
+                    <span>Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/logs.html">
+                    <img src="../admin/assets/img/log.png" alt="icon" width="20" height="20">
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li>
+                <a href="../admin/settings.html">
+                    <img src="../admin/assets/img/gear.png" alt="icon" width="20" height="20">
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="logout-btn"><a onclick="confirmLogout()"  id="logout-btn">Logout</a></button>
+    </nav>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Hope for Abused and Neglected Animals</span>
+                <h2>Dashboard</h2>
+            </div>
+        </div>
+
+        <div class="header--wrapper">
+            <div class="dashboard--content">
+                <div class="trend-card">
+                    <div class="trend-card-icon totalR"><img src="../admin/assets/img/pet-caree.png" alt="icon"
+                            width="50" height="50"></div>
+                    <div class="trend-card-title">Total Rescues</div>
+                    <div id="Trescues" class="trend-card-value">213</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-card-icon totalA"><img src="../admin/assets/img/animal-shelter.png" alt="icon"
+                            width="50" height="50"></div>
+                    <div class="trend-card-title">Total of Available Rescues</div>
+                    <div id="Tavailable" class="trend-card-value">13</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-card-icon adopted"><img src="../admin/assets/img/pet-care.png" alt="icon"
+                            width="50" height="50"></div>
+                    <div class="trend-card-title">Total of Adopted Rescues</div>
+                    <div id="Tadopted" class="trend-card-value">104</div>
+                </div>
+                <div class="trend-card">
+                    <div class="trend-card-icon monetary"><img src="../admin/assets/img/care.png" alt="icon" width="50"
+                            height="50"></div>
+                    <div class="trend-card-title">Total of Monetary Donations</div>
+                    <div id="Tmoney" class="trend-card-value">P 2,124</div>
+                </div>
+                <!-- <div  class="trend-card">
+                    <div class="trend-card-icon in-kind"><img src="../admin/assets/img/pet-food.png" alt="icon" width="50" height="50"></div>
+                    <div class="trend-card-title">Total In-Kind Donations</div>
+                    <div id="Tinkind" class="trend-card-value">P 4,123</div>
+                </div> -->
+            </div>
+
+            <div class="chart--interview">
+                <div class="chart">
+                    <canvas id="adoptionChart" width="700" height="300"></canvas>
+                </div>
+                <div class="today--interview">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="3">Today's Scheduled Interview</th>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Time</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jenny</td>
+                                <td>1:00</td>
+                                <td><a href="https://meet.google.com/xgy-chbd-fbb" target="_blank">Join Meeting</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="../admin/assets/js/admin-sidebar.js"></script>
+    <script src="../admin/assets/js/EmployeeRoute.js" type="module"></script>
+    <script src="../admin/assets/js/Dashboard.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
